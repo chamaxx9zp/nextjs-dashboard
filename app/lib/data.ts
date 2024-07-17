@@ -6,6 +6,7 @@ import {
   InvoicesTable,
   LatestInvoiceRaw,
   Revenue,
+  VehiclesTable,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -84,10 +85,7 @@ export async function fetchCardData() {
 }
 
 const ITEMS_PER_PAGE = 6;
-export async function fetchFilteredInvoices(
-  query: string,
-  currentPage: number,
-) {
+export async function fetchFilteredInvoices(query: string,currentPage: number,) {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
@@ -215,3 +213,30 @@ export async function fetchFilteredCustomers(query: string) {
     throw new Error('Failed to fetch customer table.');
   }
 }
+
+export async function fetchFilteredVehicles(query:string, currentPage:number,) {
+  const ITEMS_PER_PAGE = 6;
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+
+  try {
+    const vehicles = await sql<VehiclesTable>`
+      SELECT
+        classid,
+        classname,
+        categoryname,
+        published
+      FROM vehicles
+      WHERE
+         classname ILIKE ${`%${query}%`} OR
+        categoryname ILIKE ${`%${query}%`}
+      ORDER BY classid
+      LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
+    `;
+
+    return vehicles.rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch vehicles.');
+  }
+}
+

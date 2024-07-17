@@ -86,3 +86,11 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type VehiclesTable = {
+  classid: number;
+  classname: string;
+  categoryname: string;
+  published: 'published' | 'not published';
+};
+
