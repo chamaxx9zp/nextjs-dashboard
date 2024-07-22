@@ -57,4 +57,31 @@ export async function updateInvoice(id: string, formData: FormData) {
 export async function deleteInvoice(id: string) {
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
-  }
+}
+
+const VehicleSchema = z.object({
+  classid: z.number().optional(),
+  classname: z.string(),
+  categoryname: z.string(),
+  published: z.enum(['not published', 'published']),
+});
+
+const CreateVehicle = VehicleSchema.omit({ classid: true });
+
+const UpdateVehicle = VehicleSchema.omit({ classid: true });
+
+export async function createVehicle(formData: FormData) {
+  const { classname, categoryname, published } = CreateVehicle.parse({
+    classname: formData.get('classname'),
+    categoryname: formData.get('categoryname'),
+    published: formData.get('published'),
+  });
+
+  await sql`
+    INSERT INTO vehicles (classname, categoryname, published)
+    VALUES (${classname}, ${categoryname}, ${published})
+  `;
+
+  revalidatePath('/dashboard/vehicle-classes');
+  redirect('/dashboard/vehicle-classes');
+}

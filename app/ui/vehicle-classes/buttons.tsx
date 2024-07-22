@@ -5,7 +5,7 @@ import { deleteInvoice } from '@/app/lib/actions';
 export function CreateVehicle() {
   return (
     <Link
-      href="/dashboard/invoices/create"
+      href="/dashboard/vehicle-classes/create"
       className="flex h-10 items-center rounded-lg bg-black px-4 text-sm font-medium text-white transition-colors"
     >
       <PlusIcon className="h-5 me-2" />
@@ -14,16 +14,16 @@ export function CreateVehicle() {
   );
 }
 
-export function UpdateVehicle({ id }: { id: string }) {
-  return (
-    <Link
-      href={`/dashboard/invoices/${id}/edit`}
-      className="rounded-md border p-2 hover:bg-gray-100"
-    >
-      <PencilIcon className="w-5" />
-    </Link>
-  );
-}
+// export function UpdateVehicle({ id }: { id: string }) {
+//   return (
+//     <Link
+//       href={`/dashboard/invoices/${id}/edit`}
+//       className="rounded-md border p-2 hover:bg-gray-100"
+//     >
+//       <PencilIcon className="w-5" />
+//     </Link>
+//   );
+// }
 
 // export function DeleteInvoice({ id }: { id: string }) {
 //   const deleteInvoiceWithId = deleteInvoice.bind(null, id);

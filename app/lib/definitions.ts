@@ -94,3 +94,8 @@ export type VehiclesTable = {
   published: 'published' | 'not published';
 };
 
+export type VehicleCategoryName = {
+  classid: number;
+  categoryname: string;
+};
+
