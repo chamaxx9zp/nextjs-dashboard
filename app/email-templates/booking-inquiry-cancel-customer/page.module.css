@@ -1,11 +1,4 @@
-
-.bookingDetails {
-    background-color: #a8a2a2;
-    padding: 3rem;
-    display: flex;
-    justify-content: center;
-}
-  
+ 
 .header {
     font-size: 1.25rem;
     font-weight: bold;
@@ -27,15 +20,6 @@
 
 .detailLabel {
     font-weight: bold;
-}
-
-.gapColumn {
-    padding-right: 5rem;
-}
-
-.tablesec{
-    padding-left: 7rem;
-    padding-right: 7rem;
 }
 
 .toppara{
@@ -71,6 +55,10 @@
     color: #ffffff;
     justify-content: center;
     display: flex;
+}
+
+.thick{
+    font-weight: bold;
 }
 
 
