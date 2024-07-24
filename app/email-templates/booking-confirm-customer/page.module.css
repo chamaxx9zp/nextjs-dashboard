@@ -1,0 +1,78 @@
+/* BookingDetails.module.css */
+
+.bookingDetails {
+    background-color: #a8a2a2;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+}
+  
+.header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    text-align: left;   
+}
+
+.top{
+    background-color: black;
+    padding: 2rem;
+    color: #ffffff;
+    text-align: center; 
+
+}
+
+.detailItem {
+    margin-bottom: 8px;
+}
+
+.detailLabel {
+    font-weight: bold;
+}
+
+.gapColumn {
+    padding-right: 5rem;
+}
+
+.tablesec{
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+
+.toppara{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+
+.name{
+    padding-bottom: 1rem;
+}
+
+.success{
+    color: rgb(255, 47, 47);
+}
+
+.bottompara{
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+
+.footer{
+    background-color: black;
+    padding: 3rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+
+.footertext{
+    color: #ffffff;
+    justify-content: center;
+    display: flex;
+}
+
+
+  

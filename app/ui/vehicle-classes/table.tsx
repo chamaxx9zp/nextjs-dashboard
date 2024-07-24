@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import { fetchFilteredVehicles } from '@/app/lib/data';
 import VehicleStatus from '@/app/ui/vehicle-classes/published';
-import { UpdateVehicle } from './buttons';
+// import { UpdateVehicle } from './buttons';
 
 export default async function VehicleTable({query,currentPage,}: {query: string;currentPage: number;}) {
   const vehicles = await fetchFilteredVehicles(query, currentPage);
