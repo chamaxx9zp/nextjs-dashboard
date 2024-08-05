@@ -14,18 +14,18 @@ export function CreateVehicle() {
   );
 }
 
-// export function UpdateVehicle({ id }: { id: string }) {
-//   return (
-//     <Link
-//       href={`/dashboard/invoices/${id}/edit`}
-//       className="rounded-md border p-2 hover:bg-gray-100"
-//     >
-//       <PencilIcon className="w-5" />
-//     </Link>
-//   );
-// }
+export function UpdateVehicle({ id }: { id: number }) {
+  return (
+    <Link
+      href={`/dashboard/vehicle-classes/${id}/edit`}
+      className="rounded-md border p-2 hover:bg-gray-100"
+    >
+      <PencilIcon className="w-5" />
+    </Link>
+  );
+}
 
-// export function DeleteInvoice({ id }: { id: string }) {
+// export function DeleteVehicle({ id }: { id: number }) {
 //   const deleteInvoiceWithId = deleteInvoice.bind(null, id);
  
 //   return (

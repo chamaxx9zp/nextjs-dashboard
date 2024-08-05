@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import { fetchFilteredVehicles } from '@/app/lib/data';
 import VehicleStatus from '@/app/ui/vehicle-classes/published';
+import { UpdateVehicle } from '@/app/ui/vehicle-classes/buttons';
 // import { UpdateVehicle } from './buttons';
 
 export default async function VehicleTable({query,currentPage,}: {query: string;currentPage: number;}) {
@@ -34,7 +35,7 @@ export default async function VehicleTable({query,currentPage,}: {query: string;
                     </p>
                   </div>
                   <div className="flex justify-end gap-2">
-                    {/* <UpdateInvoice id={vehicle.id} /> */}
+                    <UpdateVehicle id={vehicle.classid} />
                     {/* <DeleteInvoice id={vehicle.id} /> */}
                   </div>
                 </div>
@@ -82,8 +83,8 @@ export default async function VehicleTable({query,currentPage,}: {query: string;
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
-                      {/* <UpdateInvoice id={vehicle.classId} />
-                      <DeleteInvoice id={vehicle.classId} /> */}
+                      <UpdateVehicle id={vehicle.classid} />
+                      {/* <DeleteInvoice id={vehicle.classId} /> */}
                     </div>
                   </td>
                 </tr>
