@@ -116,14 +116,14 @@ export async function updateVehicle(id: number, formData: FormData) {
     await sql`
         UPDATE vehicles
         SET classname = ${classname}, categoryname = ${categoryname}, published = ${published}
-        WHERE id = ${id}
+        WHERE classid = ${id}
       `;
   } catch (error) {
     return { message: 'Database Error: Failed to Update Vehicle.' };
   }
 
-  revalidatePath('/dashboard/vehicles');
-  redirect('/dashboard/vehicles'); 
+  revalidatePath('/dashboard/vehicle-classes');
+  redirect('/dashboard/vehicle-classes'); 
 }
 
 export async function deleteVehicle(id: number) {

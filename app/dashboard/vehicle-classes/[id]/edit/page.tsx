@@ -1,5 +1,3 @@
-// page.tsx
-
 import EditVehicleForm from '@/app/ui/vehicle-classes/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchVehicleById, fetchVehicleTypes } from '@/app/lib/data';
@@ -25,10 +23,10 @@ export default async function Page({ params }: { params: { id: number } }) {
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Vehicles', href: '/dashboard/vehicles' },
+          { label: 'Vehicles', href: '/dashboard/vehicle-classes' },
           {
             label: 'Edit Vehicle',
-            href: `/dashboard/vehicles/${id}/edit`,
+            href: `/dashboard/vehicle-classes/${id}/edit`,
             active: true,
           },
         ]}
