@@ -7,7 +7,7 @@ import {
   LatestInvoiceRaw,
   Revenue,
   VehiclesTable,
-  VehicleCategoryName
+  VehicleCategoryName,
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -260,3 +260,25 @@ export async function fetchVehicleTypes() {
   }
 }
 
+export async function fetchVehicleById(id: number) {
+  try {
+    const data = await sql<VehiclesTable>`
+      SELECT
+        vehicles.classid,
+        vehicles.classname,
+        vehicles.categoryname,
+        vehicles.published
+      FROM vehicles
+      WHERE vehicles.classid = ${id};
+    `;
+
+    const vehicle = data.rows.map((vehicle) => ({
+      ...vehicle,
+    }));
+
+    return vehicle[0];
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch vehicle.');
+  }
+}

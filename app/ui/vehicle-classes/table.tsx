@@ -7,7 +7,7 @@ import { UpdateVehicle } from '@/app/ui/vehicle-classes/buttons';
 
 export default async function VehicleTable({query,currentPage,}: {query: string;currentPage: number;}) {
   const vehicles = await fetchFilteredVehicles(query, currentPage);
-//   console.table(vehicles);
+  // console.table(vehicles);
 
   return (
     <div className="mt-6 flow-root">

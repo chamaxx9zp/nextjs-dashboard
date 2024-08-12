@@ -13,6 +13,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     if (!invoice) {
       notFound();
     }
+    // console.table(invoice);
+    // console.table(customers);
     
   return (
     <main>

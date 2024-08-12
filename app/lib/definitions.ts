@@ -99,3 +99,10 @@ export type VehicleCategoryName = {
   categoryname: string;
 };
 
+// export type VehicleForm = {
+//   id: number;
+//   classname: string;
+//   categoryname: string;
+//   published: 'published' | 'not published';
+// };
+

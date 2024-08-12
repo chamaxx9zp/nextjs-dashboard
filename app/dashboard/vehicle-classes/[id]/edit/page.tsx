@@ -1,32 +1,39 @@
-import Form from '@/app/ui/invoices/edit-form';
+// page.tsx
+
+import EditVehicleForm from '@/app/ui/vehicle-classes/edit-form';
 import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
-import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
+import { fetchVehicleById, fetchVehicleTypes } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 
-export default async function Page({ params }: { params: { id: string } }) {
-    const id = params.id;
-    const [invoice, customers] = await Promise.all([
-        fetchInvoiceById(id),
-        fetchCustomers(),
-      ]);
+export default async function Page({ params }: { params: { id: number } }) {
+  const id = params.id;
 
-    if (!invoice) {
-      notFound();
-    }
-    
+  // Fetch vehicle data and vehicle types
+  const [vehicle, vehicleTypes] = await Promise.all([
+    fetchVehicleById(id),
+    fetchVehicleTypes(),
+  ]);
+
+  // Handle case where vehicle is not found
+  if (!vehicle) {
+    notFound();
+  }
+  // console.table(vehicle);
+  // console.table(vehicleTypes);
+
   return (
     <main>
       <Breadcrumbs
         breadcrumbs={[
-          { label: 'Invoices', href: '/dashboard/invoices' },
+          { label: 'Vehicles', href: '/dashboard/vehicles' },
           {
-            label: 'Edit Invoice',
-            href: `/dashboard/invoices/${id}/edit`,
+            label: 'Edit Vehicle',
+            href: `/dashboard/vehicles/${id}/edit`,
             active: true,
           },
         ]}
       />
-      {/* <Form invoice={invoice} customers={customers} /> */}
+      <EditVehicleForm vehicle={vehicle} vehicleTypes={vehicleTypes} />
     </main>
   );
 }

@@ -105,6 +105,27 @@ export async function createVehicle(formData: FormData) {
   redirect('/dashboard/vehicle-classes');
 }
 
+export async function updateVehicle(id: number, formData: FormData) {
+  const { classname, categoryname, published } = UpdateVehicle.parse({
+    classname: formData.get('classname'),
+    categoryname: formData.get('categoryname'),
+    published: formData.get('published'),
+  });
+
+  try {
+    await sql`
+        UPDATE vehicles
+        SET classname = ${classname}, categoryname = ${categoryname}, published = ${published}
+        WHERE id = ${id}
+      `;
+  } catch (error) {
+    return { message: 'Database Error: Failed to Update Vehicle.' };
+  }
+
+  revalidatePath('/dashboard/vehicles');
+  redirect('/dashboard/vehicles'); 
+}
+
 
 // authentication function
 
