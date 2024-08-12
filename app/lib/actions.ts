@@ -126,6 +126,17 @@ export async function updateVehicle(id: number, formData: FormData) {
   redirect('/dashboard/vehicles'); 
 }
 
+export async function deleteVehicle(id: number) {
+  //  throw new Error('Failed to Delete Invoice');
+  try {
+    await sql`DELETE FROM vehicles WHERE classid = ${id}`;
+    revalidatePath('/dashboard/vehicle-classes');
+    return { message: 'Deleted Vehicle.' };
+  } catch (error) {
+    return { message: 'Database Error: Failed to Delete Invoice.' };
+  }
+}
+
 
 // authentication function
 
